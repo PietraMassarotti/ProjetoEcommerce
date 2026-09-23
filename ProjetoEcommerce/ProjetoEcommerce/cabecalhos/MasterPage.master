@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="cabecalhos_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+
+        <p>Tudo e Mais Um Pouco</p>
+        <asp:Button ID="btnSobre" runat="server" Text="Sobre nós"/>
+        <asp:Button ID="btnConta" runat="server" Text="Minha Conta" />
+        <asp:Button ID="btnSair" runat="server" Text="Sair" />
+
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+
+
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
