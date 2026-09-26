@@ -16,7 +16,7 @@
         <p>Tudo e Mais Um Pouco</p>
         <asp:Button ID="btnSobre" runat="server" Text="Sobre nós"/>
         <asp:Button ID="btnConta" runat="server" Text="Minha Conta" />
-        <asp:Button ID="btnSair" runat="server" Text="Sair" />
+        <asp:Button ID="btnSair" runat="server" Text="Sair" OnClick="btnSair_Click" />
 
 
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">

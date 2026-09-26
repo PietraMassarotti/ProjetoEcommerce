@@ -11,4 +11,11 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void btnSair_Click(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Session.Clear();
+        Response.Redirect("~/views/entradaUser/index.aspx");
+    }
 }

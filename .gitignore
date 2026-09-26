@@ -4,3 +4,19 @@
 *.user
 bin/
 obj/
+
+# Banco de dados local
+*.mdf
+*.ldf
+*.ndf
+
+# Pastas de build do Visual Studio
+bin/
+obj/
+
+# Arquivos de usuário do Visual Studio
+*.userosscache
+*.sln.docstates
+
+# Pacotes do NuGet
+packages/

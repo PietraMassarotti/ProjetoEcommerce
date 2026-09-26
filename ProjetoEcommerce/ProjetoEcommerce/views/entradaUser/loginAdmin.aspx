@@ -22,10 +22,12 @@
             <br />
             <br />
 
-            <asp:Button ID="btnLoginAdmin" runat="server" Text="Entrar" />
+            <asp:Button ID="btnLoginAdmin" runat="server" Text="Entrar" OnClick="btnLoginAdmin_Click" />
 
             <br />
             <br />
+
+            <asp:Label ID="lblMsg" runat="server" Text="Label" Visible="false"></asp:Label>
 
             <asp:Button ID="btnVoltar02" runat="server" Text="Voltar" OnClick="btnVoltar02_Click" />
 
