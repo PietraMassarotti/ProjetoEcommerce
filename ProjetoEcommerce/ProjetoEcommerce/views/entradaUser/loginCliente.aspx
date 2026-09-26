@@ -30,6 +30,11 @@
             <p>Ainda não possui uma conta? Clique abaixo!</p>
             <asp:Button ID="btnCadastroCliente" runat="server" Text="Cadastre-se" />
 
+            <br />
+            <br />
+
+            <asp:Button ID="btnVoltar01" runat="server" Text="Voltar" OnClick="btnVoltar01_Click" />
+
         </div>
     </form>
 </body>

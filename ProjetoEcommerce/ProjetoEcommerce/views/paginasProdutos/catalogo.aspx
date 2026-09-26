@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/cabecalhos/MasterPage.master" AutoEventWireup="true" CodeFile="catalogo.aspx.cs" Inherits="paginasProdutos_catalogo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/views/cabecalhos/MasterPage.master" AutoEventWireup="true" CodeFile="catalogo.aspx.cs" Inherits="paginasProdutos_catalogo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -6,13 +6,6 @@
     <br>
     <p>Catálogo de Produtos</p>
     <asp:TextBox ID="txtBuscarNome" runat="server"></asp:TextBox>
-
-    <asp:DropDownList ID="ddlCores" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCores_SelectedIndexChanged">
-        <asp:ListItem Text="Selecione..." Value="" />
-        <asp:ListItem Text="Vermelho" Value="1" />
-        <asp:ListItem Text="Azul" Value="2" />
-        <asp:ListItem Text="Verde" Value="3" />
-    </asp:DropDownList>
 
     <asp:ListView runat="server" DataSourceID="SqlDataSource1" GroupItemCount="3">
         <AlternatingItemTemplate>

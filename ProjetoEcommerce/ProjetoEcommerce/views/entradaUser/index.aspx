@@ -17,12 +17,12 @@
 
             <br />
 
-            <asp:Button ID="btnCliente" runat="server" Text="Clinte" />
+            <asp:Button ID="btnCliente" runat="server" Text="Cliente" OnClick="btnCliente_Click" />
 
             <br />
             <br />
 
-            <asp:Button ID="btnAdmin" runat="server" Text="Administrador" />
+            <asp:Button ID="btnAdmin" runat="server" Text="Administrador" OnClick="btnAdmin_Click" />
 
         </div>
     </form>

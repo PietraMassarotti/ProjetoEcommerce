@@ -11,4 +11,9 @@ public partial class entradaUser_loginAdmin : System.Web.UI.Page
     {
 
     }
+
+    protected void btnVoltar02_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("index.aspx");
+    }
 }

@@ -7,8 +7,13 @@ using System.Web.UI.WebControls;
 
 public partial class entradaUser_Default : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected void btnCliente_Click(object sender, EventArgs e)
     {
+        Response.Redirect("loginCliente.aspx");
+    }
 
+    protected void btnAdmin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("loginAdmin.aspx");
     }
 }
