@@ -1,0 +1,78 @@
+/*Tem que passar a estrutura do banco para cada um criar porque o github não aceita versionamento do banco de dados .mdf*/
+/*Criar um banco com nome: Ecommerce*/
+/*Clica para gerar uma nova consulta e coloca esse código no script para criar as tabelas*/
+
+/*Tabelas do banco de dados*/
+CREATE TABLE tbl_clientes(
+	cod_cliente INT PRIMARY KEY IDENTITY (1,1),
+	nome NVARCHAR(150) NOT NULL,
+	email NVARCHAR(150) NOT NULL UNIQUE,
+	senha NVARCHAR(30) NOT NULL,
+	cpf NVARCHAR (16) NOT NULL UNIQUE,
+	tipo_user CHAR(1) NOT NULL
+);
+
+CREATE TABLE tbl_administradores(
+	cod_admin INT PRIMARY KEY IDENTITY (1,1),
+	nome NVARCHAR(150) NOT NULL,
+	email NVARCHAR(150) NOT NULL,
+	senha NVARCHAR(30) NOT NULL,
+	tipo_user CHAR(1) NOT NULL
+);
+
+CREATE TABLE tbl_categorias(
+	cod_categoria INT PRIMARY KEY IDENTITY (1,1),
+	nome NVARCHAR(100) NOT NULL,
+);
+
+CREATE TABLE tbl_produtos(
+	cod_produto INT PRIMARY KEY IDENTITY (1,1),
+	nome NVARCHAR(100) NOT NULL,
+	/*Tipo DECIMAL(10,2) ao invés de FLOAT ou DOUBLE para evitar erros de arredondamento de valores, necessário ao lidar com dinheiro*/
+	preco_unitario DECIMAL(10,2) NOT NULL, 
+	descricao NVARCHAR(250),
+	validade DATE,
+	cod_categoria INT
+);
+
+CREATE TABLE tbl_pedidos(
+	cod_pedido INT PRIMARY KEY IDENTITY (1,1),
+	data_pedido DATE NOT NULL,
+	data_entrega DATE,
+	cod_cliente INT
+);
+
+CREATE TABLE tbl_itens_pedido(
+	cod_pedido INT NOT NULL,
+	cod_produto INT NOT NULL,
+	quantidade INT NOT NULL
+	/*Chave Primária Dupla*/
+	PRIMARY KEY (cod_pedido, cod_produto)
+);
+
+/*Chaves estrangeiras*/
+ALTER TABLE tbl_produtos
+ADD CONSTRAINT produtos_categorias FOREIGN KEY (cod_categoria)
+REFERENCES tbl_categorias (cod_categoria);
+
+ALTER TABLE tbl_pedidos
+ADD CONSTRAINT pedidos_clientes FOREIGN KEY (cod_cliente)
+REFERENCES tbl_clientes (cod_cliente);
+
+ALTER TABLE tbl_itens_pedido
+ADD CONSTRAINT itens_pedido_pedidos FOREIGN KEY (cod_pedido)
+REFERENCES tbl_pedidos (cod_pedido);
+
+ALTER TABLE tbl_itens_pedido
+ADD CONSTRAINT itens_pedido_produto FOREIGN KEY (cod_produto)
+REFERENCES tbl_produtos (cod_produto);
+
+ALTER TABLE tbl_produtos
+ADD qtd_disponivel INT NOT NULL;
+
+ALTER TABLE tbl_produtos
+ADD cod_admin INT NOT NULL;
+
+ALTER TABLE tbl_produtos
+ADD CONSTRAINT produtos_admins FOREIGN KEY (cod_admin)
+REFERENCES tbl_adiministradores (cod_admin);
