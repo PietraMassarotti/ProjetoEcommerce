@@ -103,8 +103,9 @@ public partial class entradaUser_loginAdmin : System.Web.UI.Page
             else
             {
                 //se tudo der certo inicia sessão com id do admin
-                Session["token"] = codAdmin;
-                Response.Redirect("~/views/paginasProdutos/catalogo.aspx");
+                Session["cod_usuario"] = codAdmin;
+                Session["tipo_user"] = 'A';
+                Response.Redirect("~/views/paginasAdmin/verMeusProdutos.aspx");
             }
 
         }

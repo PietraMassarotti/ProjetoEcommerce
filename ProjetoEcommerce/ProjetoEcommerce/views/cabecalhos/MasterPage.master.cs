@@ -9,6 +9,26 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["cod_usuario"] != null)
+        {
+            string codUsuario = Session["cod_usuario"].ToString();
+            string tipo = Session["tipo_user"].ToString();
+
+            if (tipo == "C")
+            {
+                btnCarrinho.Visible = true;
+                btnCatalogo.Visible = true;
+            }
+            if (tipo == "A")
+            {
+                btnVendas.Visible = true;
+                btnClientes.Visible = true;
+                btnMeusProdutos.Visible = true;
+            }
+        }
+        else { 
+            btnSair_Click(sender, e);
+        }
 
     }
 
@@ -17,5 +37,40 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
         Session.Abandon();
         Session.Clear();
         Response.Redirect("~/views/entradaUser/index.aspx");
+    }
+
+    protected void btnConta_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/cabecalhos/minhaConta.aspx");
+    }
+
+    protected void btnSobre_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/cabecalhos/sobre.aspx");
+    }
+
+    protected void btnVendas_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/paginasAdmin/vendas.aspx");
+    }
+
+    protected void btnClientes_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/paginasAdmin/verClientes.aspx");
+    }
+
+    protected void btnMeusProdutos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/paginasAdmin/verMeusProdutos.aspx");
+    }
+
+    protected void btnCarrinho_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/paginasCliente/carrinho.aspx");
+    }
+
+    protected void btnCatalogo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/paginasCliente/catalogo.aspx");
     }
 }

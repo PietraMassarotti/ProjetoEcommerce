@@ -14,8 +14,13 @@
     <div>
 
         <p>Tudo e Mais Um Pouco</p>
-        <asp:Button ID="btnSobre" runat="server" Text="Sobre nós"/>
-        <asp:Button ID="btnConta" runat="server" Text="Minha Conta" />
+        <asp:Button ID="btnVendas" runat="server" Text="Minhas vendas" Visible="false" OnClick="btnVendas_Click"/>
+        <asp:Button ID="btnClientes" runat="server" Text="Ver clientes" Visible="false" OnClick="btnClientes_Click"/>
+        <asp:Button ID="btnMeusProdutos" runat="server" Text="Meus Produtos" Visible="false" OnClick="btnMeusProdutos_Click"/>
+        <asp:Button ID="btnCarrinho" runat="server" Text="Carrinho" Visible="false" OnClick="btnCarrinho_Click"/>
+        <asp:Button ID="btnCatalogo" runat="server" Text="Catalogo" Visible="false" OnClick="btnCatalogo_Click"/>
+        <asp:Button ID="btnSobre" runat="server" Text="Sobre nós" OnClick="btnSobre_Click"/>
+        <asp:Button ID="btnConta" runat="server" Text="Minha Conta" OnClick="btnConta_Click" />
         <asp:Button ID="btnSair" runat="server" Text="Sair" OnClick="btnSair_Click" />
 
 

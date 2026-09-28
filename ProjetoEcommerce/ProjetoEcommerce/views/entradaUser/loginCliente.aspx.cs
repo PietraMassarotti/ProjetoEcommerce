@@ -98,7 +98,8 @@ public partial class entradaUser_loginCliente : System.Web.UI.Page
             else
             {
                 // Se tudo der certo inicia sessão com o código do cliente
-                Session["cod_cliente"] = codCliente;
+                Session["cod_usuario"] = codCliente;
+                Session["tipo_user"] = 'C';
                 Response.Redirect("~/views/paginasCliente/catalogo.aspx");
             }
         }
