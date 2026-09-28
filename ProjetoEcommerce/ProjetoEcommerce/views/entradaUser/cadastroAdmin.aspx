@@ -31,6 +31,13 @@
             <br />
                  <asp:Label ID="lblMsg" runat="server" Text="Label" Visible="false"></asp:Label>
             <br />
+            <br />
+
+            <asp:Button ID="btnVoltar" runat="server" Text="Voltar para Tela inicial" OnClick="btnVoltar_Click" />
+
+            <br />
+            <br />
+
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="cod_admin" DataSourceID="SqlDataSource1">
                 <Columns>
                     <asp:BoundField DataField="cod_admin" HeaderText="cod_admin" InsertVisible="False" ReadOnly="True" SortExpression="cod_admin" />
@@ -40,7 +47,8 @@
                     <asp:BoundField DataField="tipo_user" HeaderText="tipo_user" SortExpression="tipo_user" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [tbl_administradores]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [tbl_administradores]" ProviderName="System.Data.SqlClient"></asp:SqlDataSource>
+        
         </div>
     </form>
 </body>

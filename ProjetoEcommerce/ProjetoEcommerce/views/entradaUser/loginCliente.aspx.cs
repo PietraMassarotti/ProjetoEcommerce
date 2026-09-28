@@ -16,4 +16,9 @@ public partial class entradaUser_loginCliente : System.Web.UI.Page
     {
         Response.Redirect("index.aspx");
     }
+
+    protected void btnCadastroCliente_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("cadastroCliente.aspx");
+    }
 }

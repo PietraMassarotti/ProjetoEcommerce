@@ -26,8 +26,14 @@
 
             <br />
             <br />
-
+            
             <asp:Label ID="lblMsg" runat="server" Text="Label" Visible="false"></asp:Label>
+
+            <p>Ainda não possui uma conta? Clique abaixo!</p>
+            <asp:Button ID="btnCadastroAdmin" runat="server" Text="Cadastre-se" OnClick="btnCadastroAdmin_Click"/>
+
+            <br />
+            <br />
 
             <asp:Button ID="btnVoltar02" runat="server" Text="Voltar" OnClick="btnVoltar02_Click" />
 

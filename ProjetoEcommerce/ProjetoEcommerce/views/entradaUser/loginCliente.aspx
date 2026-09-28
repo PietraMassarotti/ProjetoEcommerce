@@ -28,7 +28,7 @@
             <br />
 
             <p>Ainda não possui uma conta? Clique abaixo!</p>
-            <asp:Button ID="btnCadastroCliente" runat="server" Text="Cadastre-se" />
+            <asp:Button ID="btnCadastroCliente" runat="server" Text="Cadastre-se" OnClick="btnCadastroCliente_Click" />
 
             <br />
             <br />

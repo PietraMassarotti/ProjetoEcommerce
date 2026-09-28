@@ -90,4 +90,9 @@ public partial class entradaUser_cadastroAdmin : System.Web.UI.Page
             GridView1.DataBind();
         }
     }
+
+    protected void btnVoltar_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("index.aspx");
+    }
 }

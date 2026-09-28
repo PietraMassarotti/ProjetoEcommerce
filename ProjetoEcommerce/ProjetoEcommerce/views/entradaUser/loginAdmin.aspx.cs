@@ -109,4 +109,9 @@ public partial class entradaUser_loginAdmin : System.Web.UI.Page
 
         }
     }
+
+    protected void btnCadastroAdmin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("cadastroAdmin.aspx");
+    }
 }
