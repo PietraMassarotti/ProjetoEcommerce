@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Login - Cliente</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,10 +22,12 @@
             <br />
             <br />
 
-            <asp:Button ID="btnLoginCliente" runat="server" Text="Entrar" />
+            <asp:Button ID="btnLoginCliente" runat="server" Text="Entrar" OnClick="btnLoginCliente_Click" />
 
             <br />
             <br />
+            
+            <asp:Label ID="lblMsg" runat="server" Text="Label" Visible="false"></asp:Label>
 
             <p>Ainda não possui uma conta? Clique abaixo!</p>
             <asp:Button ID="btnCadastroCliente" runat="server" Text="Cadastre-se" OnClick="btnCadastroCliente_Click" />
@@ -37,5 +39,6 @@
 
         </div>
     </form>
+    
 </body>
 </html>
