@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Cadastro - Cliente</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -20,7 +20,8 @@
             <asp:TextBox ID="txtEmailCliente" runat="server"></asp:TextBox>
 
             <p>Digite sua senha:</p>
-            <asp:TextBox ID="txtSenhaCliente" runat="server"></asp:TextBox>
+            <!-- TextMode="Password" oculta a senha digitada -->
+            <asp:TextBox ID="txtSenhaCliente" runat="server" TextMode="Password"></asp:TextBox>
 
             <p>Digite seu CPF:</p>
             <asp:TextBox ID="txtCpfCliente" runat="server"></asp:TextBox>
@@ -33,17 +34,17 @@
             <br />
             <br />
 
-            <asp:Label ID="lblMsg" runat="server" Text="Label" Visible ="false"></asp:Label>
+            <asp:Label ID="lblMsg" runat="server" Text="Label" Visible="false"></asp:Label>
 
             <br />
             <br />
 
             <asp:Button ID="btnVoltar" runat="server" Text="Voltar para tela inicial" OnClick="btnVoltar_Click"/>
 
+            <!-- GridView para testes (Opcional: você pode mantê-la oculta em produção) -->
             <br />
             <br />
-
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="cod_cliente" DataSourceID="SqlDataSource1">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="cod_cliente" DataSourceID="SqlDataSource1" Visible="false">
                 <Columns>
                     <asp:BoundField DataField="cod_cliente" HeaderText="cod_cliente" InsertVisible="False" ReadOnly="True" SortExpression="cod_cliente" />
                     <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />

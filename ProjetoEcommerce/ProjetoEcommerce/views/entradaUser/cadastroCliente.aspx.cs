@@ -17,14 +17,13 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
 
     protected void btnCadastroCliente_Click(object sender, EventArgs e)
     {
-        string strConexao = ConfigurationManager
-            .ConnectionStrings["ConnectionString"].ConnectionString;
-        //inicializa o contador de erros e a mensagem de erro
+        string strConexao = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         int contaErro = 0;
         string msgErro = "";
 
         lblMsg.Visible = false;
 
+        // Validações de campos obrigatórios
         if (txtNomeCliente.Text.Trim() == "")
         {
             contaErro++;
@@ -34,7 +33,7 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
         if (txtEmailCliente.Text.Trim() == "")
         {
             contaErro++;
-            msgErro += "Email - Obrigatório!<br>";
+            msgErro += "E-mail - Obrigatório!<br>";
         }
 
         if (txtSenhaCliente.Text == "")
@@ -43,13 +42,12 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
             msgErro += "Senha - Obrigatória!<br>";
         }
 
-        if (txtCpfCliente.Text == "")
+        if (txtCpfCliente.Text.Trim() == "")
         {
             contaErro++;
-            msgErro += "Senha - Obrigatória!<br>";
+            msgErro += "CPF - Obrigatório!<br>"; // Corrigido a mensagem do CPF
         }
 
-        //se algum campo estiver vazio alertará o usuário, caso contrário insere os dados no banco
         if (contaErro > 0)
         {
             lblMsg.Text = msgErro;
@@ -62,33 +60,46 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
+                // 1. Verifica se o e-mail já existe no banco de dados antes de inserir
+                SqlCommand cmdVerifica = new SqlCommand("SELECT COUNT(*) FROM tbl_clientes WHERE email = @email", conn);
+                cmdVerifica.Parameters.AddWithValue("@email", txtEmailCliente.Text.Trim());
 
-                //tenta inserir os dados do administrador no banco de dados
+                int emailExiste = Convert.ToInt32(cmdVerifica.ExecuteScalar());
+
+                if (emailExiste > 0)
+                {
+                    lblMsg.Text = "Este e-mail já está cadastrado!";
+                    lblMsg.ForeColor = Color.IndianRed;
+                    lblMsg.Visible = true;
+                    return;
+                }
+
+                // 2. Tenta inserir o novo cliente
                 try
                 {
-                    // Insere os dados do administrador no banco de dados
-                    cmd.CommandText = "INSERT INTO tbl_clientes " +
-                        "(nome, email, senha, cpf, tipo_user) VALUES " +
-                        "(@nome, @email, @senha, @cpf, 'C')";
-                    // Adiciona os parâmetros para evitar SQL Injection
-                    cmd.Parameters.AddWithValue("@nome", txtNomeCliente.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmailCliente.Text);
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+
+                    cmd.CommandText = "INSERT INTO tbl_clientes (nome, email, senha, cpf, tipo_user) " +
+                                     "VALUES (@nome, @email, @senha, @cpf, 'C')";
+
+                    cmd.Parameters.AddWithValue("@nome", txtNomeCliente.Text.Trim());
+                    cmd.Parameters.AddWithValue("@email", txtEmailCliente.Text.Trim());
                     cmd.Parameters.AddWithValue("@senha", txtSenhaCliente.Text);
-                    cmd.Parameters.AddWithValue("@cpf", txtCpfCliente.Text);
+                    cmd.Parameters.AddWithValue("@cpf", txtCpfCliente.Text.Trim());
 
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
-                { //caso ocorra algum erro ao inserir os dados no banco de dados, exibe o que causou o erro
+                {
                     lblMsg.Text = "Erro ao cadastrar cliente: " + ex.Message;
                     lblMsg.ForeColor = Color.IndianRed;
                     lblMsg.Visible = true;
                     return;
                 }
             }
-            // Limpa os campos do formulário e exibe a mensagem de sucesso
+
+            // Limpa os campos do formulário após sucesso
             txtNomeCliente.Text = string.Empty;
             txtEmailCliente.Text = string.Empty;
             txtSenhaCliente.Text = string.Empty;
