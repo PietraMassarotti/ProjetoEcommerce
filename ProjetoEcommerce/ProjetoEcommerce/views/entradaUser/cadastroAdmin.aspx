@@ -20,13 +20,27 @@
             <asp:TextBox ID="txtEmailAdmin" runat="server"></asp:TextBox>
 
             <p>Digite sua senha:</p>
-            <asp:TextBox ID="txtSenhaAdmin" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSenhaAdmin" runat="server" type="password"></asp:TextBox>
 
             <br />
             <br />
 
-            <asp:Button ID="btnCadastroAdmin" runat="server" Text="Cadastrar" />
+            <asp:Button ID="btnCadastroAdmin" runat="server" Text="Cadastrar" OnClick="btnCadastrarAdmin_Click"/>
 
+            <br />
+            <br />
+                 <asp:Label ID="lblMsg" runat="server" Text="Label" Visible="false"></asp:Label>
+            <br />
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="cod_admin" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:BoundField DataField="cod_admin" HeaderText="cod_admin" InsertVisible="False" ReadOnly="True" SortExpression="cod_admin" />
+                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
+                    <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+                    <asp:BoundField DataField="senha" HeaderText="senha" SortExpression="senha" />
+                    <asp:BoundField DataField="tipo_user" HeaderText="tipo_user" SortExpression="tipo_user" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [tbl_administradores]"></asp:SqlDataSource>
         </div>
     </form>
 </body>
