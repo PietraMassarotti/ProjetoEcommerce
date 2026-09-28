@@ -6,27 +6,32 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <link rel="stylesheet" type="text/css" href="~/views/css/menu.css" />
+    <link rel="stylesheet" type="text/css" href="~/views/css/paginas.css" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div class="topo">
+        <div class="nome">
+            <p>Tudo e Mais Um Pouco</p>
+        </div>
 
-        <p>Tudo e Mais Um Pouco</p>
-        <asp:Button ID="btnVendas" runat="server" Text="Minhas vendas" Visible="false" OnClick="btnVendas_Click"/>
-        <asp:Button ID="btnClientes" runat="server" Text="Ver clientes" Visible="false" OnClick="btnClientes_Click"/>
-        <asp:Button ID="btnMeusProdutos" runat="server" Text="Meus Produtos" Visible="false" OnClick="btnMeusProdutos_Click"/>
-        <asp:Button ID="btnCarrinho" runat="server" Text="Carrinho" Visible="false" OnClick="btnCarrinho_Click"/>
-        <asp:Button ID="btnCatalogo" runat="server" Text="Catalogo" Visible="false" OnClick="btnCatalogo_Click"/>
-        <asp:Button ID="btnSobre" runat="server" Text="Sobre nós" OnClick="btnSobre_Click"/>
-        <asp:Button ID="btnConta" runat="server" Text="Minha Conta" OnClick="btnConta_Click" />
-        <asp:Button ID="btnSair" runat="server" Text="Sair" OnClick="btnSair_Click" />
+        <div class="menuBotoes">
+            <asp:Button ID="btnVendas" runat="server" CssClass="botao" Text="Minhas vendas" Visible="false" OnClick="btnVendas_Click"/>
+            <asp:Button ID="btnClientes" runat="server" CssClass="botao" Text="Ver clientes" Visible="false" OnClick="btnClientes_Click"/>
+            <asp:Button ID="btnMeusProdutos" runat="server" CssClass="botao" Text="Meus Produtos" Visible="false" OnClick="btnMeusProdutos_Click"/>
+            <asp:Button ID="btnCarrinho" runat="server" CssClass="botao" Text="Carrinho" Visible="false" OnClick="btnCarrinho_Click"/>
+            <asp:Button ID="btnCatalogo" runat="server" CssClass="botao" Text="Catalogo" Visible="false" OnClick="btnCatalogo_Click"/>
+            <asp:Button ID="btnSobre" runat="server" CssClass="botao" Text="Sobre nós" OnClick="btnSobre_Click"/>
+            <asp:Button ID="btnConta" runat="server" CssClass="botao" Text="Minha Conta" OnClick="btnConta_Click" />
+            <asp:Button ID="btnSair" runat="server" CssClass="botao sair" Text="Sair" OnClick="btnSair_Click" />
+        </div>
+    </div>
 
-
+    <div class="conteudoPagina">
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-
-
         </asp:ContentPlaceHolder>
     </div>
     </form>

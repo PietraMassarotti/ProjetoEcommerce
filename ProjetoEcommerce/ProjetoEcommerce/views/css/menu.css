@@ -1,0 +1,59 @@
+﻿*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+}
+
+.topo {
+    background-color: #c62828;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*Se não tem espaço na linha, há uma quebra de linha*/
+    flex-wrap: wrap;
+    /*Primeiro valor(12 px) define cima e baixo, segundo valor (24px) define esuqerda direita*/
+    padding: 12px 24px;
+}
+
+.nome{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menuBotoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.botao{
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+.botao:hover {
+    background-color: #ffffff;
+    color: #c62828;
+}
+
+.sair {
+    background-color: #7a0000;
+    border-color: #7a0000;
+}
+
+.sair:hover {
+    background-color: #100000;
+    border-color: #5a0000;
+    color: #c62828;
+
+}
+
+.conteudoPagina {
+    padding: 24px;
+}
