@@ -4,13 +4,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <h1>Sobre nós:</h1>
-    <br />
-    <p>Olá! Somos uma empresa especializada na venda de produtos online. Buscamos ser uma plataforma simples e prática para conseguir atender a todas as suas necessidades.</p>
-    <p>Este site foi feito no Visual Studio 2022 utilizando asp net e C#!</p>
-    <p>Informaçoes de contado:</p>
-    <p>E-mail: </p>
-    <p>Telefone: </p>
+   <div class="paginaGeral">
+        <h1>Sobre Nós</h1>
+        <h2>Tudo e Mais Um Pouco!</h2>
+
+        <p>Na <strong>Tudo e Mais Um Pouco!</strong>, você encontra tudo o que precisa em um só lugar, de forma simples, prática e segura.</p>
+
+        <p>Nosso objetivo é oferecer variedade, qualidade e praticidade, tornando sua experiência de compra cada vez melhor.</p>
+
+        <h3>Tudo e Mais Um Pouco! Tudo o que você precisa, em um só lugar.</h3>
+    </div>
+
 
 </asp:Content>
 

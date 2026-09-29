@@ -24,7 +24,9 @@
             <asp:Button ID="btnMeusProdutos" runat="server" CssClass="botao" Text="Meus Produtos" Visible="false" OnClick="btnMeusProdutos_Click"/>
             <asp:Button ID="btnCarrinho" runat="server" CssClass="botao" Text="Carrinho" Visible="false" OnClick="btnCarrinho_Click"/>
             <asp:Button ID="btnCatalogo" runat="server" CssClass="botao" Text="Catalogo" Visible="false" OnClick="btnCatalogo_Click"/>
+            <asp:Button ID="btnPlanos" runat="server" CssClass="botao" Text="Planos" OnClick="btnPlanos_Click"/>
             <asp:Button ID="btnSobre" runat="server" CssClass="botao" Text="Sobre nós" OnClick="btnSobre_Click"/>
+            <asp:Button ID="btnContato" runat="server" CssClass="botao" Text="Entre em contato" OnClick="btnContato_Click"/>
             <asp:Button ID="btnConta" runat="server" CssClass="botao" Text="Minha Conta" OnClick="btnConta_Click" />
             <asp:Button ID="btnSair" runat="server" CssClass="botao sair" Text="Sair" OnClick="btnSair_Click" />
         </div>

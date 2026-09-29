@@ -73,4 +73,14 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
     {
         Response.Redirect("~/views/paginasCliente/catalogo.aspx");
     }
+
+    protected void btnPlanos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/cabecalhos/planos.aspx");
+    }
+
+    protected void btnContato_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/cabecalhos/contato.aspx");
+    }
 }
