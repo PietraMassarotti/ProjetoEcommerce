@@ -34,7 +34,7 @@ body {
     gap: 8px;
 }
 
-.botao{
+.botaoMenu{
     background-color: transparent;
     color: #ffffff;
     border: 1px solid #ffffff;
@@ -43,7 +43,7 @@ body {
     font-size: 14px;
 }
 
-.botao:hover {
+.botaoMenu:hover {
     background-color: #ffffff;
     color: #c62828;
 }

@@ -4,16 +4,36 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <%--Labels vazias, sao preenchidas no code behind--%>
-    <h2><asp:Label ID="lblNome" runat="server" /></h2>
-    <p><asp:Label ID="lblDescricao" runat="server" /></p>
-    <p>Preço: <asp:Label ID="lblPreco" runat="server" /></p>
-    <p>Quantidade Disponivel: <asp:Label ID="lblQtd" runat="server" /></p>
 
-    <p>Quantidade:</p>
-    <asp:TextBox ID="txtQuantidade" runat="server" TextMode="Number" Text="1" Width="60px" />
-    <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar ao carrinho"/>
-    <asp:Label ID="lblMsg" runat="server" Visible="false"/>
+<div class="produto">
+
+    <%--Labels vazias, sao preenchidas no code behind--%>
+    <h2 class="produtoNome"><asp:Label ID="lblNome" runat="server" /></h2>
+    <p class="produtoDescricao"><asp:Label ID="lblDescricao" runat="server" /></p>
+
+    <div class="produtoInfo">
+        <p><strong>Categoria: </strong><asp:Label ID="lblCategoria" runat="server" /></p>
+        <p><strong>Vendedor: </strong><asp:Label ID="lblVendedor" runat="server" /></p>
+        <p><strong>Quantidade Disponível: </strong><asp:Label ID="lblQtd" runat="server" /></p>
+    </div>
+
+    <p class="produtoPreco">
+        Preço: <asp:Label ID="lblPreco" runat="server" />
+    </p>
+
+    <div class="produtoBotoes">
+        <p>Escolha a quantidade de itens desejados:</p>
+        <asp:TextBox ID="txtQuantidade" runat="server" CssClass="qtdDispo" TextMode="Number" Text="1" />
+        <asp:Button ID="btnAdicionar" runat="server" CssClass="botao" Text="Adicionar ao carrinho" />
+    </div>
+
+    <asp:Label ID="lblMsg" runat="server" Visible="false" />
+
+    <br />
+
+    <asp:Button ID="btnVoltar" runat="server" CssClass="botao" Text="Voltar para catálogo" OnClick="btnVoltar_Click" />
+
+</div>
 
 </asp:Content>
 
