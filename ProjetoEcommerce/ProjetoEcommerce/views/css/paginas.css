@@ -1,1 +1,39 @@
-﻿
+﻿.catalogo h1 {
+        color: #c62828;
+        margin-bottom: 24px;
+    }
+
+.catalogoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.cardProduto {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardProdutoNome {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+    margin: 8px 0 4px;
+}
+
+.cardProdutoInfo {
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+.cardProdutoPreco {
+    font-size: 20px;
+    font-weight: bold;
+    color: #c62828;
+    margin-top: 8px;
+}
