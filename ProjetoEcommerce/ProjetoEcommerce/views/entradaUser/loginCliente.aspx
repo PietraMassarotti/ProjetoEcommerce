@@ -6,10 +6,11 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Login - Cliente</title>
+    <link rel="stylesheet" type="text/css" href="~/views/css/entradaUser.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class ="caixa">
 
             <h1>Login Cliente</h1>
 
@@ -17,7 +18,7 @@
             <asp:TextBox ID="txtEmailCliente" runat="server"></asp:TextBox>
 
             <p>Digite sua senha:</p>
-            <asp:TextBox ID="txtSenhaCliente" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSenhaCliente" runat="server" type="password"></asp:TextBox>
 
             <br />
             <br />

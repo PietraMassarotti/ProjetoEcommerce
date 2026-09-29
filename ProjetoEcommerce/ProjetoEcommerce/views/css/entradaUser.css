@@ -2,4 +2,74 @@
     border: 0;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*vh (Viewport Height) é uma unidade que representa a altura da janela de visualização (a tela visível do navegador). 100vh é igual a 100% da altura da tela.*/
+    min-height: 100vh;
+}
+
+.caixa {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 32px 40px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    border: 0.5px solid black;
+}
+
+h1 {
+    color: #c62828;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+h2 {
+    color: #333;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 16px;
+}
+
+p {
+    color: #555;
+    font-size: 14px;
+    margin: 12px 0 4px;
+    text-align: left;
+}
+
+/*Pega os campos de entrada*/
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/*Pega os bo~tões (não sei porque mas o nome "button" não funciona)*/
+input[type="submit"] {
+    width: 100%;
+    background-color: #c62828;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background-color 0.2s ease;
+}
+
+    /*:hover, ao passar o mouse emcima do elemento o css muda*/
+    input[type="submit"]:hover {
+        background-color: #a01f1f;
+    }

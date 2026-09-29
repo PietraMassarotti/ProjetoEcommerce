@@ -5,11 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Cadastro - Admin</title>
+     <link rel="stylesheet" type="text/css" href="~/views/css/entradaUser.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class ="caixa">
 
             <h1>Cadastro Administrador</h1>
 
@@ -31,24 +32,12 @@
             <br />
                  <asp:Label ID="lblMsg" runat="server" Text="Label" Visible="false"></asp:Label>
             <br />
+                 <asp:Button ID="btnLogin" runat="server" Text="Ir para login" Visible="false" OnClick="btnLogin_Click"/>
+            <br />
             <br />
 
             <asp:Button ID="btnVoltar" runat="server" Text="Voltar para Tela inicial" OnClick="btnVoltar_Click" />
 
-            <br />
-            <br />
-
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="cod_admin" DataSourceID="SqlDataSource1">
-                <Columns>
-                    <asp:BoundField DataField="cod_admin" HeaderText="cod_admin" InsertVisible="False" ReadOnly="True" SortExpression="cod_admin" />
-                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
-                    <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
-                    <asp:BoundField DataField="senha" HeaderText="senha" SortExpression="senha" />
-                    <asp:BoundField DataField="tipo_user" HeaderText="tipo_user" SortExpression="tipo_user" />
-                </Columns>
-            </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [tbl_administradores]" ProviderName="System.Data.SqlClient"></asp:SqlDataSource>
-        
         </div>
     </form>
 </body>

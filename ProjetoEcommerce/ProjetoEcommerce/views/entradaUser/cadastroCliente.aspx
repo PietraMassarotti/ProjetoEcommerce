@@ -6,10 +6,11 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Cadastro - Cliente</title>
+     <link rel="stylesheet" type="text/css" href="~/views/css/entradaUser.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class ="caixa">
 
             <h1>Cadastro Cliente</h1>
 
@@ -35,27 +36,13 @@
             <br />
 
             <asp:Label ID="lblMsg" runat="server" Text="Label" Visible="false"></asp:Label>
+            <br />
+            <asp:Button ID="btnLogin" runat="server" Text="Ir para login" Visible="false" OnClick="btnLogin_Click"/>
 
             <br />
             <br />
 
             <asp:Button ID="btnVoltar" runat="server" Text="Voltar para tela inicial" OnClick="btnVoltar_Click"/>
-
-            <!-- GridView para testes (Opcional: você pode mantê-la oculta em produção) -->
-            <br />
-            <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="cod_cliente" DataSourceID="SqlDataSource1" Visible="false">
-                <Columns>
-                    <asp:BoundField DataField="cod_cliente" HeaderText="cod_cliente" InsertVisible="False" ReadOnly="True" SortExpression="cod_cliente" />
-                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
-                    <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
-                    <asp:BoundField DataField="senha" HeaderText="senha" SortExpression="senha" />
-                    <asp:BoundField DataField="cpf" HeaderText="cpf" SortExpression="cpf" />
-                    <asp:BoundField DataField="tipo_user" HeaderText="tipo_user" SortExpression="tipo_user" />
-                </Columns>
-            </asp:GridView>
-
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [tbl_clientes]"></asp:SqlDataSource>
 
         </div>
     </form>

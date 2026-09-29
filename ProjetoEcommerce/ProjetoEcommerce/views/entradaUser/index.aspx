@@ -5,11 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Página de Entrada</title>
+     <link rel="stylesheet" type="text/css" href="~/views/css/entradaUser.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="caixa">
 
             <h1>Seja bem vindo ao Tudo e Mais um Pouco!</h1>
 

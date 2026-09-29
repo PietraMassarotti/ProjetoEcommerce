@@ -34,13 +34,13 @@ public partial class entradaUser_loginAdmin : System.Web.UI.Page
         if (email == "")
         {
             contaErro++;
-            msg += "Campo e-mail não pode estar vazio! <br>";
+            msg += "Campo 'E-mail' deve ser preenchido!<br>";
         }
 
         if (senha == "")
         {
             contaErro++;
-            msg += "Campo senha não pode estar vazia! <br>";
+            msg += "Campo 'Senha'deve ser preenchido!<br>";
         }
 
         //Se os campos estão vazios não tem sentido procura-los no banco

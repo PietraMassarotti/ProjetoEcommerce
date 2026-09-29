@@ -27,19 +27,19 @@ public partial class entradaUser_cadastroAdmin : System.Web.UI.Page
         if (txtNomeAdmin.Text.Trim() == "")
         {
             contaErro++;
-            msgErro += "Nome - Obrigatório!<br>";
+            msgErro += "Campo 'Nome' deve ser preenchido!<br>";
         }
 
         if (txtEmailAdmin.Text.Trim() == "")
         {
             contaErro++;
-            msgErro += "Email - Obrigatório!<br>";
+            msgErro += "Campo 'E-mail' deve ser preenchido!<br>";
         }
 
         if (txtSenhaAdmin.Text == "")
         {
             contaErro++;
-            msgErro += "Senha - Obrigatória!<br>";
+            msgErro += "Campo 'Senha' deve ser preenchido!<br>";
         }
         //se algum campo estiver vazio alertará o usuário, caso contrário insere os dados no banco
         if (contaErro > 0)
@@ -86,13 +86,17 @@ public partial class entradaUser_cadastroAdmin : System.Web.UI.Page
             lblMsg.Text = "Cadastro realizado com sucesso! :)";
             lblMsg.ForeColor = Color.DarkOliveGreen;
             lblMsg.Visible = true;
-
-            GridView1.DataBind();
+            btnLogin.Visible = true;
         }
     }
 
     protected void btnVoltar_Click(object sender, EventArgs e)
     {
         Response.Redirect("index.aspx");
+    }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("loginAdmin.aspx");
     }
 }

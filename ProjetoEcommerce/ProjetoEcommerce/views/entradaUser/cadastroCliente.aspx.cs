@@ -27,25 +27,25 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
         if (txtNomeCliente.Text.Trim() == "")
         {
             contaErro++;
-            msgErro += "Nome - Obrigatório!<br>";
+            msgErro += "Campo 'Nome' deve ser preenchido!<br>";
         }
 
         if (txtEmailCliente.Text.Trim() == "")
         {
             contaErro++;
-            msgErro += "E-mail - Obrigatório!<br>";
+            msgErro += "Campo 'E-mail' deve ser preenchido!<br>";
         }
 
         if (txtSenhaCliente.Text == "")
         {
             contaErro++;
-            msgErro += "Senha - Obrigatória!<br>";
+            msgErro += "Campo 'Senha' deve ser preenchido!<br>";
         }
 
         if (txtCpfCliente.Text.Trim() == "")
         {
             contaErro++;
-            msgErro += "CPF - Obrigatório!<br>"; // Corrigido a mensagem do CPF
+            msgErro += "Campo 'CPF' deve ser preenchido!<br>"; // Corrigido a mensagem do CPF
         }
 
         if (contaErro > 0)
@@ -108,13 +108,17 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
             lblMsg.Text = "Cadastro realizado com sucesso! :)";
             lblMsg.ForeColor = Color.DarkOliveGreen;
             lblMsg.Visible = true;
-
-            GridView1.DataBind();
+            btnLogin.Visible = true;
         }
     }
 
     protected void btnVoltar_Click(object sender, EventArgs e)
     {
         Response.Redirect("index.aspx");
+    }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("loginCliente.aspx");
     }
 }
