@@ -59,11 +59,6 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
         Response.Redirect("~/views/paginasAdmin/verMeusProdutos.aspx");
     }
 
-    protected void btnCarrinho_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/views/paginasCliente/carrinho.aspx");
-    }
-
     protected void btnCatalogo_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/views/paginasCliente/catalogo.aspx");
@@ -77,5 +72,10 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
     protected void btnContato_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/views/cabecalhos/contato.aspx");
+    }
+
+    protected void btnPedidos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/paginasCliente/pedidos.aspx");
     }
 }
