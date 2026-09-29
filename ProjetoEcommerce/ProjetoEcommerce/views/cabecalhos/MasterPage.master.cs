@@ -39,11 +39,6 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
         Response.Redirect("~/views/entradaUser/index.aspx");
     }
 
-    protected void btnConta_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/views/cabecalhos/minhaConta.aspx");
-    }
-
     protected void btnSobre_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/views/cabecalhos/sobre.aspx");

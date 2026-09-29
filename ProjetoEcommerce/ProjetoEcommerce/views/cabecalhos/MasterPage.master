@@ -27,7 +27,6 @@
             <asp:Button ID="btnPlanos" runat="server" CssClass="botaoMenu" Text="Planos" OnClick="btnPlanos_Click"/>
             <asp:Button ID="btnSobre" runat="server" CssClass="botaoMenu" Text="Sobre nós" OnClick="btnSobre_Click"/>
             <asp:Button ID="btnContato" runat="server" CssClass="botaoMenu" Text="Entre em contato" OnClick="btnContato_Click"/>
-            <asp:Button ID="btnConta" runat="server" CssClass="botaoMenu" Text="Minha Conta" OnClick="btnConta_Click" />
             <asp:Button ID="btnSair" runat="server" CssClass="botaoMenu sair" Text="Sair" OnClick="btnSair_Click" />
         </div>
     </div>

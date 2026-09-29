@@ -24,7 +24,7 @@
     <div class="produtoBotoes">
         <p>Escolha a quantidade de itens desejados:</p>
         <asp:TextBox ID="txtQuantidade" runat="server" CssClass="qtdDispo" TextMode="Number" Text="1" />
-        <asp:Button ID="btnAdicionar" runat="server" CssClass="botao" Text="Adicionar ao carrinho" />
+        <asp:Button ID="btnAdicionar" runat="server" CssClass="botao" Text="Adicionar ao carrinho" OnClick="btnAdicionar_Click" />
     </div>
 
     <asp:Label ID="lblMsg" runat="server" Visible="false" />

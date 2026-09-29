@@ -63,4 +63,9 @@ public partial class views_paginasCliente_detalheProduto : System.Web.UI.Page
     {
         Response.Redirect("~/views/paginasCliente/catalogo.aspx");
     }
+
+    protected void btnAdicionar_Click(object sender, EventArgs e)
+    {
+
+    }
 }
