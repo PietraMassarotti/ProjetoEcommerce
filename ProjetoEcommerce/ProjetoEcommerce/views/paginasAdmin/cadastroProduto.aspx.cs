@@ -14,9 +14,11 @@ public partial class paginasProdutos_cadastroProduto : System.Web.UI.Page
 
     protected void btnCadastrarProduto_Click(object sender, EventArgs e)
     {
+        // Obtém a string de conexão do arquivo Web.config
         string strConexao = ConfigurationManager
             .ConnectionStrings["ConnectionString"].ConnectionString;
 
+        // Verifica se o usuário está logado e se é um administrador
         if (Session["cod_usuario"] == null ||
             Session["tipo_user"] == null ||
             Session["tipo_user"].ToString() != "A")
@@ -24,14 +26,14 @@ public partial class paginasProdutos_cadastroProduto : System.Web.UI.Page
             Response.Redirect("~/entradaUser/loginAdmin.aspx");
             return;
         }
-
+        // Obtém o código do administrador logado
         int codAdmin = Convert.ToInt32(Session["cod_usuario"]);
 
         int contaErro = 0;
         string msgErro = "";
 
         lblMsg.Visible = false;
-
+        // Valida os campos do formulário
         if (txtNomeProduto.Text.Trim() == "")
         {
             contaErro++;
@@ -69,7 +71,7 @@ public partial class paginasProdutos_cadastroProduto : System.Web.UI.Page
             lblMsg.Visible = true;
             return;
         }
-
+        //valida se os campos numéricos são válidos
         decimal preco;
         int quantidade;
         DateTime validade;

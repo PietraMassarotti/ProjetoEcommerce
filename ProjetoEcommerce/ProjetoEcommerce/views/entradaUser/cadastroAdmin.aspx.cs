@@ -11,14 +11,15 @@ using System.Web.UI.WebControls;
 public partial class entradaUser_cadastroAdmin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    { 
+    {
     }
 
-      protected void btnCadastrarAdmin_Click(object sender, EventArgs e)
-      {
+    protected void btnCadastrarAdmin_Click(object sender, EventArgs e)
+    {
         string strConexao = ConfigurationManager
             .ConnectionStrings["ConnectionString"].ConnectionString;
-        //inicializa o contador de erros e a mensagem de erro
+
+        // inicializa o contador de erros e a mensagem de erro
         int contaErro = 0;
         string msgErro = "";
 
@@ -41,6 +42,7 @@ public partial class entradaUser_cadastroAdmin : System.Web.UI.Page
             contaErro++;
             msgErro += "Campo 'Senha' deve ser preenchido!<br>";
         }
+
         if (txtNomeAdmin.Text.Length > 150)
         {
             contaErro++;
@@ -58,54 +60,80 @@ public partial class entradaUser_cadastroAdmin : System.Web.UI.Page
             contaErro++;
             msgErro += "Campo 'Senha' deve ter no máximo 30 caracteres!<br>";
         }
-        //se algum campo estiver vazio alertará o usuário, caso contrário insere os dados no banco
+
+        // se algum campo estiver vazio alertará o usuário,
+        // caso contrário insere os dados no banco
         if (contaErro > 0)
         {
             lblMsg.Text = msgErro;
             lblMsg.ForeColor = Color.IndianRed;
             lblMsg.Visible = true;
-        } 
+        }
         else
         {
-            using (SqlConnection conn = new SqlConnection(strConexao))
+            try
             {
-                conn.Open();
+                using (SqlConnection conn = new SqlConnection(strConexao))
+                {
+                    // abre a conexão com o banco de dados
+                    conn.Open();
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
+                    // verifica se o e-mail já está cadastrado
+                    SqlCommand cmdVerifica = new SqlCommand(
+                        "SELECT COUNT(*) FROM tbl_administradores WHERE email = @email",
+                        conn);
 
-                //tenta inserir os dados do administrador no banco de dados
-                try
-                { 
-                // Insere os dados do administrador no banco de dados
-                cmd.CommandText = "INSERT INTO tbl_administradores " +
-                    "(nome, email, senha, tipo_user) VALUES " +
-                    "(@nome, @email, @senha, 'A')";
-                // Adiciona os parâmetros para evitar SQL Injection
-                cmd.Parameters.AddWithValue("@nome", txtNomeAdmin.Text);
-                cmd.Parameters.AddWithValue("@email", txtEmailAdmin.Text);
-                cmd.Parameters.AddWithValue("@senha", txtSenhaAdmin.Text);
+                    cmdVerifica.Parameters.AddWithValue(
+                        "@email",
+                        txtEmailAdmin.Text.Trim());
 
-                cmd.ExecuteNonQuery();
+                    int emailExiste = Convert.ToInt32(
+                        cmdVerifica.ExecuteScalar());
+
+                    if (emailExiste > 0)
+                    {
+                        lblMsg.Text = "Este e-mail já está cadastrado!";
+                        lblMsg.ForeColor = Color.IndianRed;
+                        lblMsg.Visible = true;
+                        return;
                     }
-                catch (Exception ex){ //caso ocorra algum erro ao inserir os dados no banco de dados, exibe o que causou o erro
-                    lblMsg.Text = "Erro ao cadastrar administrador: " + ex.Message;
-                    lblMsg.ForeColor = Color.IndianRed;
-                    lblMsg.Visible = true;
-                    return;
+
+                    // cria o comando para inserir o administrador
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+
+                    // tenta inserir os dados do administrador no banco de dados
+                    cmd.CommandText = "INSERT INTO tbl_administradores " +
+                        "(nome, email, senha, tipo_user) VALUES " +
+                        "(@nome, @email, @senha, 'A')";
+
+                    // adiciona os parâmetros para evitar SQL Injection
+                    cmd.Parameters.AddWithValue("@nome", txtNomeAdmin.Text);
+                    cmd.Parameters.AddWithValue("@email", txtEmailAdmin.Text);
+                    cmd.Parameters.AddWithValue("@senha", txtSenhaAdmin.Text);
+
+                    cmd.ExecuteNonQuery();
                 }
             }
-
-                // Limpa os campos do formulário e exibe a mensagem de sucesso
-                txtNomeAdmin.Text = string.Empty;
-                txtEmailAdmin.Text = string.Empty;
-                txtSenhaAdmin.Text = string.Empty;
-
-                lblMsg.Text = "Cadastro realizado com sucesso! :)";
-                lblMsg.ForeColor = Color.DarkOliveGreen;
+            catch (Exception ex)
+            {
+                // caso ocorra algum erro ao inserir os dados no banco,
+                // exibe o que causou o erro
+                lblMsg.Text = "Erro ao cadastrar administrador: " + ex.Message;
+                lblMsg.ForeColor = Color.IndianRed;
                 lblMsg.Visible = true;
-                btnLogin.Visible = true;
-                     
+                return;
+            }
+
+            // limpa os campos do formulário e exibe a mensagem de sucesso
+            txtNomeAdmin.Text = string.Empty;
+            txtEmailAdmin.Text = string.Empty;
+            txtSenhaAdmin.Text = string.Empty;
+
+            lblMsg.Text = "Cadastro realizado com sucesso! :)";
+            lblMsg.ForeColor = Color.DarkOliveGreen;
+            lblMsg.Visible = true;
+            btnLogin.Visible = true;
         }
     }
 

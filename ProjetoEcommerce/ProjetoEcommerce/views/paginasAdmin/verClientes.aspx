@@ -8,7 +8,7 @@
     <div class ="catalogo">
         <h1>Clientes Cadastrados</h1>
     </div>
-
+    //gridview para exibir os clientes cadastrados no banco de dados
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="946px">
         <AlternatingRowStyle BackColor="White" />
         <Columns>

@@ -13,6 +13,7 @@ public partial class views_paginasCliente_catalogo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Conecta ao banco de dados e busca os produtos
         string strConexao = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         SqlConnection conn = new SqlConnection();
         conn.ConnectionString = strConexao.ToString();

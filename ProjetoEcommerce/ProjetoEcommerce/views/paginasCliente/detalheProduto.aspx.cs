@@ -58,12 +58,12 @@ public partial class views_paginasCliente_detalheProduto : System.Web.UI.Page
         }
 
     }
-
+    //botao para voltar ao catalogo
     protected void btnVoltar_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/views/paginasCliente/catalogo.aspx");
     }
-
+    //botao para adicionar ao carrinho
     protected void btnAdicionar_Click(object sender, EventArgs e)
     {
         int contaErro = 0;
@@ -72,13 +72,13 @@ public partial class views_paginasCliente_detalheProduto : System.Web.UI.Page
         lblMsg.Visible = false;
 
         int quantidade;
-
+        //valida se o campo quantidade é um número maior que zero
         if (!int.TryParse(txtQuantidade.Text, out quantidade) || quantidade <= 0)
         {
             contaErro++;
             msgErro += "Campo 'Quantidade' deve ser um número maior que zero!<br>";
         }
-        
+        //se possuir erros, não faz a inserção no carrinho
         if (contaErro > 0)
         {
             lblMsg.Text = msgErro;
