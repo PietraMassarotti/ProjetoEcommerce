@@ -41,13 +41,30 @@ public partial class entradaUser_cadastroAdmin : System.Web.UI.Page
             contaErro++;
             msgErro += "Campo 'Senha' deve ser preenchido!<br>";
         }
+        if (txtNomeAdmin.Text.Length > 150)
+        {
+            contaErro++;
+            msgErro += "Campo 'Nome' deve ter no máximo 150 caracteres!<br>";
+        }
+
+        if (txtEmailAdmin.Text.Length > 150)
+        {
+            contaErro++;
+            msgErro += "Campo 'E-mail' deve ter no máximo 150 caracteres!<br>";
+        }
+
+        if (txtSenhaAdmin.Text.Length > 30)
+        {
+            contaErro++;
+            msgErro += "Campo 'Senha' deve ter no máximo 30 caracteres!<br>";
+        }
         //se algum campo estiver vazio alertará o usuário, caso contrário insere os dados no banco
         if (contaErro > 0)
         {
             lblMsg.Text = msgErro;
             lblMsg.ForeColor = Color.IndianRed;
             lblMsg.Visible = true;
-        }
+        } 
         else
         {
             using (SqlConnection conn = new SqlConnection(strConexao))
@@ -78,15 +95,17 @@ public partial class entradaUser_cadastroAdmin : System.Web.UI.Page
                     return;
                 }
             }
-            // Limpa os campos do formulário e exibe a mensagem de sucesso
-            txtNomeAdmin.Text = string.Empty;
-            txtEmailAdmin.Text = string.Empty;
-            txtSenhaAdmin.Text = string.Empty;
 
-            lblMsg.Text = "Cadastro realizado com sucesso! :)";
-            lblMsg.ForeColor = Color.DarkOliveGreen;
-            lblMsg.Visible = true;
-            btnLogin.Visible = true;
+                // Limpa os campos do formulário e exibe a mensagem de sucesso
+                txtNomeAdmin.Text = string.Empty;
+                txtEmailAdmin.Text = string.Empty;
+                txtSenhaAdmin.Text = string.Empty;
+
+                lblMsg.Text = "Cadastro realizado com sucesso! :)";
+                lblMsg.ForeColor = Color.DarkOliveGreen;
+                lblMsg.Visible = true;
+                btnLogin.Visible = true;
+                     
         }
     }
 

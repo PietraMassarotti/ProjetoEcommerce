@@ -66,6 +66,30 @@ public partial class views_paginasCliente_detalheProduto : System.Web.UI.Page
 
     protected void btnAdicionar_Click(object sender, EventArgs e)
     {
+        int contaErro = 0;
+        string msgErro = "";
 
+        lblMsg.Visible = false;
+
+        int quantidade;
+
+        if (!int.TryParse(txtQuantidade.Text, out quantidade) || quantidade <= 0)
+        {
+            contaErro++;
+            msgErro += "Campo 'Quantidade' deve ser um número maior que zero!<br>";
+        }
+        
+        if (contaErro > 0)
+        {
+            lblMsg.Text = msgErro;
+            lblMsg.ForeColor = Color.IndianRed;
+            lblMsg.Visible = true;
+        }
+        else
+        {
+            lblMsg.Text = "Produto adicionado ao carrinho com sucesso!";
+            lblMsg.ForeColor = Color.DarkOliveGreen;
+            lblMsg.Visible = true;
+        }
     }
 }

@@ -48,6 +48,30 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
             msgErro += "Campo 'CPF' deve ser preenchido!<br>"; // Corrigido a mensagem do CPF
         }
 
+        if (txtNomeCliente.Text.Length > 150)
+        {
+            contaErro++;
+            msgErro += "Campo 'Nome' deve ter no máximo 150 caracteres!<br>";
+        }
+
+        if (txtEmailCliente.Text.Length > 150)
+        {
+            contaErro++;
+            msgErro += "Campo 'E-mail' deve ter no máximo 150 caracteres!<br>";
+        }
+
+        if (txtSenhaCliente.Text.Length > 30)
+        {
+            contaErro++;
+            msgErro += "Campo 'Senha' deve ter no máximo 30 caracteres<br>";
+        }
+
+        if (txtCpfCliente.Text.Length > 16)
+        {
+            contaErro++;
+            msgErro += "Campo 'CPF'deve ter no máximo 16 caracteres!<br>"; // Corrigido a mensagem do CPF
+        }
+
         if (contaErro > 0)
         {
             lblMsg.Text = msgErro;
