@@ -103,7 +103,7 @@ public partial class entradaUser_loginAdmin : System.Web.UI.Page
             else
             {
                 //se tudo der certo inicia sessão com id do admin
-                Session["cod_usuario"] = codAdmin;
+                Session["cod_usuario"] = Convert.ToInt32(codAdmin);
                 Session["tipo_user"] = 'A';
                 Response.Redirect("~/views/paginasAdmin/verMeusProdutos.aspx");
             }
