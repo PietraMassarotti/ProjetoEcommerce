@@ -58,7 +58,7 @@
                     DataNavigateUrlFields="cod_produto"
                     DataNavigateUrlFormatString="EditarProdutos.aspx?id={0}" />
 
-                //gridview para ver os produtos cadastrados pelo administrador, com opção de editar cada produto
+                <%--gridview para ver os produtos cadastrados pelo administrador, com opção de editar cada produto --%>
             </Columns>
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />

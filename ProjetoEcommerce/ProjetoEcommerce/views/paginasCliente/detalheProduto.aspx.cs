@@ -74,12 +74,10 @@ public partial class views_paginasCliente_detalheProduto : System.Web.UI.Page
         lblMsg.Visible = false;
 
         int quantidade;
-<<<<<<< HEAD
+
 
         //Verifique se é um numero ou se é menor que zero
-=======
         //valida se o campo quantidade é um número maior que zero
->>>>>>> 5b9c00795efb952f6bbe313a2b283ef919fad916
         if (!int.TryParse(txtQuantidade.Text, out quantidade) || quantidade <= 0)
         {
             contaErro++;
