@@ -16,12 +16,11 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
 
             if (tipo == "C")
             {
-                btnCarrinho.Visible = true;
+                btnPedidos.Visible = true;
                 btnCatalogo.Visible = true;
             }
             if (tipo == "A")
             {
-                btnVendas.Visible = true;
                 btnClientes.Visible = true;
                 btnMeusProdutos.Visible = true;
             }

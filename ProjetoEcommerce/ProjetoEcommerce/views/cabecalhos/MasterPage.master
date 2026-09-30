@@ -21,7 +21,7 @@
         <div class="menuBotoes">
             <asp:Button ID="btnClientes" runat="server" CssClass="botaoMenu" Text="Ver clientes" Visible="false" OnClick="btnClientes_Click"/>
             <asp:Button ID="btnMeusProdutos" runat="server" CssClass="botaoMenu" Text="Meus Produtos" Visible="false" OnClick="btnMeusProdutos_Click"/>
-            <asp:Button ID="btnCarrinho" runat="server" CssClass="botaoMenu" Text="Meus pedidos" Visible="false" OnClick="btnPedidos_Click"/>
+            <asp:Button ID="btnPedidos" runat="server" CssClass="botaoMenu" Text="Meus pedidos" Visible="false" OnClick="btnPedidos_Click"/>
             <asp:Button ID="btnCatalogo" runat="server" CssClass="botaoMenu" Text="Catalogo" Visible="false" OnClick="btnCatalogo_Click"/>
             <asp:Button ID="btnPlanos" runat="server" CssClass="botaoMenu" Text="Planos" OnClick="btnPlanos_Click"/>
             <asp:Button ID="btnSobre" runat="server" CssClass="botaoMenu" Text="Sobre nós" OnClick="btnSobre_Click"/>
