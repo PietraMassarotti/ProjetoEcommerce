@@ -1,84 +1,74 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/views/cabecalhos/MasterPage.master"
+    AutoEventWireup="true"
     CodeFile="verMeusProdutos.aspx.cs"
     Inherits="views_paginasAdmin_visualizarMeusProdutos" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<head runat="server">
+    <div class="produto">
 
-    <meta http-equiv="Content-Type"
-        content="text/html; charset=utf-8"/>
+        <h1>Meus Produtos</h1>
+        <br />
 
-    <title>Meus Produtos - Admin</title>
+        <p>Bem-vindo à área do administrador!</p>
 
-    <link rel="stylesheet"
-        type="text/css"
-        href="~/views/css/entradaUser.css" />
+        <br />
 
-</head>
+        <asp:Button
+            ID="btnNovosProdutos"
+            runat="server"
+            CssClass="botao"
+            Text="Cadastrar Novos Produtos"
+            OnClick="btnNovosProdutos_Click" />
 
-<body>
+        <br />
+        <br />
 
-    <form id="form1" runat="server">
+        <asp:GridView
+            ID="GridView1"
+            runat="server"
+            AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="475px">
 
-        <div class="caixa">
+            <AlternatingRowStyle BackColor="White" />
 
-            <h1>Meus Produtos</h1>
+            <Columns>
 
-            <p>Bem-vindo à área do administrador!</p>
+                <asp:BoundField
+                    DataField="nome"
+                    HeaderText="Nome" />
 
-            <asp:Button
-                ID="btnNovosProdutos"
-                runat="server"
-                Text="Cadastrar Novos Produtos"
-                OnClick="btnNovosProdutos_Click" />
+                <asp:BoundField
+                    DataField="preco_unitario"
+                    HeaderText="Preço" />
 
-            <br />
-            <br />
+                <asp:BoundField
+                    DataField="descricao"
+                    HeaderText="Descrição" />
 
-            <asp:Button
-                ID="BtnEditarProdutos"
-                runat="server"
-                Text="Editar Produtos"
-                OnClick="BtnEditarProdutos_Click" />
+                <asp:BoundField
+                    DataField="validade"
+                    HeaderText="Validade" />
 
-            <br />
-            <br />
+                <asp:HyperLinkField
+                    Text="Editar"
+                    HeaderText="Ação"
+                    DataNavigateUrlFields="cod_produto"
+                    DataNavigateUrlFormatString="EditarProdutos.aspx?id={0}" />
 
-            <asp:GridView
-                ID="GridView1"
-                runat="server"
-                AutoGenerateColumns="False">
+            </Columns>
+            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+            <SortedDescendingHeaderStyle BackColor="#820000" />
+        </asp:GridView>
+    </div>
 
-                <Columns>
-
-                    <asp:BoundField
-                        DataField="nome"
-                        HeaderText="Nome" />
-
-                    <asp:BoundField
-                        DataField="preco_unitario"
-                        HeaderText="Preço" />
-
-                    <asp:BoundField
-                        DataField="descricao"
-                        HeaderText="Descrição" />
-
-                    <asp:BoundField
-                        DataField="validade"
-                        HeaderText="Validade" />
-
-                    <asp:HyperLinkField
-                        Text="Editar"
-                        HeaderText="Ação"
-                        DataNavigateUrlFields="cod_produto"
-                        DataNavigateUrlFormatString="EditarProdutos.aspx?id={0}" />
-
-                </Columns>
-            </asp:GridView>
-        </div>
-    </form>
-</body>
-</html>
+</asp:Content>

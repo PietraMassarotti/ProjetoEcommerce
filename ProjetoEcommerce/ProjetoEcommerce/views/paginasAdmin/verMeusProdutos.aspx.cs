@@ -79,8 +79,4 @@ public partial class views_paginasAdmin_visualizarMeusProdutos : System.Web.UI.P
         Response.Redirect("cadastroProduto.aspx");
     }
 
-    protected void BtnEditarProdutos_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("EditarProdutos.aspx");
-    }
 }

@@ -9,22 +9,26 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Verifica se a sessao existe
         if (Session["cod_usuario"] != null)
         {
             string codUsuario = Session["cod_usuario"].ToString();
             string tipo = Session["tipo_user"].ToString();
 
+            //Se tipo_usuario igual a C exibe páginas de cliente
             if (tipo == "C")
             {
                 btnPedidos.Visible = true;
                 btnCatalogo.Visible = true;
             }
+            //Se tipo_usuario igual a A exibe páginas de admin
             if (tipo == "A")
             {
                 btnClientes.Visible = true;
                 btnMeusProdutos.Visible = true;
             }
         }
+        //se não existe sai
         else { 
             btnSair_Click(sender, e);
         }
@@ -33,11 +37,13 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
 
     protected void btnSair_Click(object sender, EventArgs e)
     {
+        //abandona e sai da sessão
         Session.Abandon();
         Session.Clear();
         Response.Redirect("~/views/entradaUser/index.aspx");
     }
 
+    //Navegação de páginas no menu
     protected void btnSobre_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/views/cabecalhos/sobre.aspx");

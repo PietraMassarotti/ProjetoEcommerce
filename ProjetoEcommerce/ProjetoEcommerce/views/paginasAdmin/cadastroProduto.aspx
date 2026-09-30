@@ -1,39 +1,48 @@
-﻿
-<%@ Page Title="" Language="C#" MasterPageFile="~/views/cabecalhos/MasterPage.master" AutoEventWireup="true" CodeFile="cadastroProduto.aspx.cs" Inherits="paginasProdutos_cadastroProduto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/views/cabecalhos/MasterPage.master" AutoEventWireup="true" CodeFile="cadastroProduto.aspx.cs" Inherits="paginasProdutos_cadastroProduto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <h1>Adicionar Produto</h1>
+    <div class="produto">
 
-    <p>Nome:</p>
-    <asp:TextBox ID="txtNomeProduto" runat="server"></asp:TextBox>
+        <h1>Adicionar Produto</h1>
+        <br />
+        <p>Nome:</p>
+        <asp:TextBox ID="txtNomeProduto" CssClass="qtdDispo" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <p>Preço unitário:</p>
+        <asp:TextBox ID="txtPrecoProduto" CssClass="qtdDispo" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <p>Descrição:</p>
+        <asp:TextBox ID="txtDescricaoProduto" CssClass="qtdDispo" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <p>Validade:</p>
+        <asp:TextBox ID="txtvalidadeProduto" runat="server" CssClass="qtdDispo" TextMode="Date"></asp:TextBox>
+        <br />
+        <br />
+        <p>Quantidade Disponível:</p>
+        <asp:TextBox ID="txtQtdDisponivelProduto" runat="server" CssClass="qtdDispo"></asp:TextBox>
 
-    <p>Preço unitário:</p>
-    <asp:TextBox ID="txtPrecoProduto" runat="server"></asp:TextBox>
+        <br />
 
-    <p>Descrição:</p>
-    <asp:TextBox ID="txtDescricaoProduto" runat="server"></asp:TextBox>
+        <asp:Label ID="lblMsg" runat="server" Visible="false"></asp:Label>
 
-    <p>Validade:</p>
-    <asp:TextBox ID="txtvalidadeProduto" runat="server" TextMode="Date"></asp:TextBox>
+        <br />
 
-    <p>Quantidade Disponível:</p>
-    <asp:TextBox ID="txtQtdDisponivelProduto" runat="server"></asp:TextBox>
+        <asp:Button ID="btnCadastrarProduto"
+            runat="server"
+            CssClass="botao"
+            Text="Adicionar"
+            OnClick="btnCadastrarProduto_Click" />
+        <br />
+        <br />
+        <asp:Button ID="btnVoltar" runat="server" CssClass="botao" Text="Voltar" OnClick="btnVoltar_Click" />
 
-    <br />
-    <br />
-
-    <asp:Label ID="lblMsg" runat="server" Visible="false"></asp:Label>
-
-    <br />
-    <br />
-
-    <asp:Button ID="btnCadastrarProduto"
-        runat="server"
-        Text="Adicionar"
-        OnClick="btnCadastrarProduto_Click" />
+    </div>
 
 </asp:Content>

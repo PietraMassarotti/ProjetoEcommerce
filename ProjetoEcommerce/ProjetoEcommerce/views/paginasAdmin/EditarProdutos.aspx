@@ -1,61 +1,47 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/views/cabecalhos/MasterPage.master"
+    AutoEventWireup="true"
     CodeFile="EditarProdutos.aspx.cs"
     Inherits="paginasProdutos_editarProduto" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<head runat="server">
-
-    <meta http-equiv="Content-Type"
-        content="text/html; charset=utf-8"/>
-
-    <title>Editar Produto</title>
-
-</head>
-
-<body>
-
-    <form id="form1" runat="server">
+    <div class="produto">
 
         <h1>Editar Produto</h1>
-
-        <p>Nome:</p>
-
-        <asp:TextBox ID="txtNomeProduto" runat="server">
-        </asp:TextBox>
-
-        <p>Preço:</p>
-
-        <asp:TextBox ID="txtPrecoProduto" runat="server"></asp:TextBox>
-
-        <p>Descrição:</p>
-
-        <asp:TextBox ID="txtDescricaoProduto" runat="server"></asp:TextBox>
-
-        <p>Validade:</p>
-
-        <asp:TextBox ID="txtValidadeProduto" runat="server" TextMode="Date"></asp:TextBox>
-
-        <p>Quantidade disponível:</p>
-
-        <asp:TextBox ID="txtQtdDisponivelProduto" runat="server"></asp:TextBox>
-
         <br />
+        <p>Nome:</p>
+        <asp:TextBox ID="txtNomeProduto" runat="server" CssClass="qtdDispo"></asp:TextBox>
+        <br />
+        <br />
+        <p>Preço:</p>
+        <asp:TextBox ID="txtPrecoProduto" runat="server" CssClass="qtdDispo"></asp:TextBox>
+        <br />
+        <br />
+        <p>Descrição:</p>
+        <asp:TextBox ID="txtDescricaoProduto" runat="server" CssClass="qtdDispo"></asp:TextBox>
+        <br />
+        <br />
+        <p>Validade:</p>
+        <asp:TextBox ID="txtValidadeProduto" runat="server" CssClass="qtdDispo" TextMode="Date"></asp:TextBox>
+        <br />
+        <br />
+        <p>Quantidade disponível:</p>
+        <asp:TextBox ID="txtQtdDisponivelProduto" runat="server" CssClass="qtdDispo"></asp:TextBox>
+
         <br />
 
         <asp:Label ID="lblMsg" runat="server" Visible="false"></asp:Label>
 
         <br />
+
+        <asp:Button ID="btnSalvar" runat="server" CssClass="botao" Text="Salvar alterações" OnClick="btnSalvar_Click" />
         <br />
+        <br />
+        <asp:Button ID="btnVoltar" runat="server" CssClass="botao" Text="Voltar" OnClick="btnVoltar_Click" />
 
-        <asp:Button ID="btnSalvar" runat="server" Text="Salvar alterações" OnClick="btnSalvar_Click" />
+    </div>
 
-        <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
-
-    </form>
-
-</body>
-
-</html>
+</asp:Content>

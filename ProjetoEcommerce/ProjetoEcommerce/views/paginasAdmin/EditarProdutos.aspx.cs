@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Drawing;
 
 public partial class paginasProdutos_editarProduto : System.Web.UI.Page
 {
@@ -258,6 +259,7 @@ public partial class paginasProdutos_editarProduto : System.Web.UI.Page
                     else
                     {
                         lblMsg.Text = "Não foi possível alterar o produto.";
+                        lblMsg.ForeColor = Color.IndianRed;
                         lblMsg.Visible = true;
                     }
                 }

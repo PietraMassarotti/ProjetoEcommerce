@@ -15,14 +15,17 @@ public partial class views_cabecalhos_contato : System.Web.UI.Page
 
     protected void btnEnviar_Click(object sender, EventArgs e)
     {
+        //Verifica se todos os campos estão preenchidos
         if (txtNome.Text.Trim() == "" || txtEmail.Text.Trim() == "" || txtMensagem.Text.Trim() == "")
         {
             lblMsg.Text = "Por favor, preencha todos os campos obrigatórios!";
             lblMsg.ForeColor = Color.IndianRed;
             lblMsg.Visible = true;
+            //Para código se algum dos campos estiver vazio
             return;
         }
 
+        //Limpa o input
         txtNome.Text = string.Empty;
         txtEmail.Text = string.Empty;
         txtAssunto.Text = string.Empty;

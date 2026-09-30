@@ -140,5 +140,11 @@ public partial class paginasProdutos_cadastroProduto : System.Web.UI.Page
         lblMsg.Visible = true;
     }
 
-    
+    protected void btnVoltar_Click(object sender, EventArgs e)
+    {
+        // Volta para a página que mostra os produtos
+        Response.Redirect("verMeusProdutos.aspx");
+    }
+
+
 }
