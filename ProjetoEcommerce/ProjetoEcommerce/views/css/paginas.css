@@ -6,6 +6,7 @@
 
 .catalogoGrid {
     display: grid;
+    /*cria um layout em grade (grid) totalmente responsivo e adaptável de forma automática*/
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
 }
@@ -40,7 +41,6 @@
 }
 
 /*Página de detalhes produto*/
-/* ===== Página de detalhe do produto ===== */
 .produto {
     max-width: 500px;
     text-align: left;

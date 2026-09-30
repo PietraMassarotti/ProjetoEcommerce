@@ -34,23 +34,31 @@ public partial class views_paginasCliente_pedidos : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "SELECT P.cod_pedido, STRING_AGG(PR.nome, ', ') AS produtos, P.data_pedido, P.data_entrega FROM tbl_pedidos P JOIN tbl_itens_pedido IP ON IP.cod_pedido = P.cod_pedido JOIN tbl_produtos PR ON PR.cod_produto = IP.cod_produto WHERE P.cod_cliente = @cod_user GROUP BY P.cod_pedido, P.data_pedido, P.data_entrega";
 
+            //  cmd.ExecuteNonQuery(); // ISSO aqui usa para oque não faz select, por exemplo INSERT, DELETE UPDATE
+            //  cmd.ExecuteReader(); ou  cmd.ExecuteScalar(); // isso para query
+            cmd.CommandText = "SELECT P.cod_pedido, STRING_AGG(PR.nome, ', ') AS produtos, P.data_pedido, P.data_entrega FROM tbl_pedidos P JOIN tbl_itens_pedido IP ON IP.cod_pedido = P.cod_pedido JOIN tbl_produtos PR ON PR.cod_produto = IP.cod_produto WHERE P.cod_cliente = @cod_user GROUP BY P.cod_pedido, P.data_pedido, P.data_entrega";
+            //resultado do select dentro de reader
+            //objeto responsável por ler, linha por linha, o resultado de uma consulta SQL feita ao banco de dados.
             cmd.Parameters.AddWithValue("@cod_user", cod_user);
             SqlDataReader reader = cmd.ExecuteReader();
 
+            //uma estrutura de dados que representa uma tabela na memória (linhas e colunas), parecida com uma planilha.
             DataTable tabela = new DataTable();
+            //percorre o reader inteiro automaticamente e guarda tudo dentro da tabela
             tabela.Load(reader);
 
             conn.Close();
 
             // Liga a tabela ao Repeater e desenha um item vazio para cada linha
+            //diz ao Repeater "essa é a fonte de dados que você vai usar".
             rptProdutos.DataSource = tabela;
             rptProdutos.DataBind();
 
             // Agora percorre os itens ja criados e preenche cada um
             for (int i = 0; i < tabela.Rows.Count; i++)
             {
+                //Pega a linha i da tabela, ou seja, os dados de um pedido específico (todas as colunas daquela linha).
                 DataRow linha = tabela.Rows[i];
                 RepeaterItem item = rptProdutos.Items[i];
 
@@ -59,6 +67,7 @@ public partial class views_paginasCliente_pedidos : System.Web.UI.Page
                 Label lblData = (Label)item.FindControl("lblData");
                 Label lblEntrega = (Label)item.FindControl("lblEntrega");
 
+                //Preenche cada label com o valor correspondente daquela linha: 
                 lblCod.Text = linha["cod_pedido"].ToString();
                 lblProd.Text = linha["produtos"].ToString();
                 lblData.Text = linha["data_pedido"].ToString();

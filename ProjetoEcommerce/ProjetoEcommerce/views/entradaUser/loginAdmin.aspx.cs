@@ -22,15 +22,12 @@ public partial class entradaUser_loginAdmin : System.Web.UI.Page
 
     protected void btnLoginAdmin_Click(object sender, EventArgs e)
     {
-        //Para teste:
-        //email: teste@email.com
-        //senha: Teste123
-
         string msg = "";
         int contaErro = 0;
         string email = txtEmailAdmin.Text;
         string senha = txtSenhaAdmin.Text;
 
+        //Validação de campos obrigatórios
         if (email == "")
         {
             contaErro++;
@@ -43,7 +40,7 @@ public partial class entradaUser_loginAdmin : System.Web.UI.Page
             msg += "Campo 'Senha'deve ser preenchido!<br>";
         }
 
-        //Se os campos estão vazios não tem sentido procura-los no banco
+        //Se os campos estão vazios não procura no banco
         if (contaErro > 0)
         {
             lblMsg.Text = msg;
@@ -51,6 +48,7 @@ public partial class entradaUser_loginAdmin : System.Web.UI.Page
             lblMsg.Visible = true;
         }
         else {
+            //inicia como null
             String codAdmin = null;
             String senhaAtual = null;
 
@@ -66,12 +64,13 @@ public partial class entradaUser_loginAdmin : System.Web.UI.Page
             cmd.CommandText = "SELECT cod_admin, senha FROM tbl_administradores WHERE email = @email";
             //Evita SQL injection, o nome é Binding SQL;
             cmd.Parameters.AddWithValue("@email", email);
+            //resultado do select dentro de reader
+            //objeto responsável por ler, linha por linha, o resultado de uma consulta SQL feita ao banco de dados.
             SqlDataReader reader = cmd.ExecuteReader();
             //Usa if porque o retorno é sempre um único administrador nao vários
             if (reader.Read())
             {
                 // cada linha retornado é um items do if
-
                 //pega e guarda o codAdmin correspondente ao email;
                 codAdmin = Convert.ToString(reader["cod_admin"]);
                 //pega e guarda a senha correspondente ao email;
@@ -87,6 +86,7 @@ public partial class entradaUser_loginAdmin : System.Web.UI.Page
                 msg += "E-mail não encontrado. <br>";
             }
             else {
+                //senha colocada pelo usuário é diferente da senha salva
                 if (senha != senhaAtual)
                 {
                     contaErro++;

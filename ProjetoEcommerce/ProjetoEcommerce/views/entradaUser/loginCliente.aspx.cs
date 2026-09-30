@@ -27,6 +27,7 @@ public partial class entradaUser_loginCliente : System.Web.UI.Page
         string email = txtEmailCliente.Text;
         string senha = txtSenhaCliente.Text;
 
+        //Validação de campos obrigatórios
         if (email == "")
         {
             contaErro++;
@@ -39,7 +40,7 @@ public partial class entradaUser_loginCliente : System.Web.UI.Page
             msg += "Campo 'Senha' deve ser preenchido! <br>";
         }
 
-        // Se os campos estão vazios não tem sentido procurá-los no banco
+        // Se os campos estão vazios não procura no banco
         if (contaErro > 0)
         {
             lblMsg.Text = msg;
@@ -58,9 +59,13 @@ public partial class entradaUser_loginCliente : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
 
+            //  cmd.ExecuteNonQuery(); // ISSO aqui usa para oque não faz select, por exemplo INSERT, DELETE UPDATE
+            //  cmd.ExecuteReader(); ou  cmd.ExecuteScalar(); // isso para query
             cmd.CommandText = "SELECT cod_cliente, senha FROM tbl_clientes WHERE email = @email AND tipo_user = 'C'";
             // Evita SQL injection, o nome é Binding SQL;
             cmd.Parameters.AddWithValue("@email", email);
+            //resultado do select dentro de reader
+            //objeto responsável por ler, linha por linha, o resultado de uma consulta SQL feita ao banco de dados.
             SqlDataReader reader = cmd.ExecuteReader();
 
             // Usa if porque o retorno é sempre um único cliente não vários

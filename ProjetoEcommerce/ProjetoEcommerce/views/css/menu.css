@@ -33,6 +33,7 @@ body {
 
 .menuBotoes {
     display: flex;
+    /*criam um layout flexível e responsivo que organiza os elementos lado a lado e permite que eles passem para a linha de baixo quando o espaço acabar*/
     flex-wrap: wrap;
     gap: 8px;
 }
@@ -75,6 +76,7 @@ body {
     border-radius: 8px;
     padding: 32px 40px;
     margin: 40px auto;
+    /*Tamanho máximo do elemento*/
     max-width: 700px;
 }
 

@@ -2,6 +2,7 @@
     border: 0;
     margin: 0;
     padding: 0;
+    /* faz com que a largura (width) e a altura (height) de um elemento incluam o preenchimento (padding) e a borda (border) em suas dimensões totais.*/
     box-sizing: border-box;
 }
 
@@ -20,6 +21,7 @@ body {
     border-radius: 8px;
     padding: 32px 40px;
     width: 100%;
+    /*Define largura máxima de um elemento*/
     max-width: 380px;
     text-align: center;
     border: 0.5px solid black;
@@ -41,6 +43,7 @@ h2 {
 p {
     color: #555;
     font-size: 14px;
+    /*Primeiro valor define cima/baixo segundo esquerda/direita*/
     margin: 12px 0 4px;
     text-align: left;
 }
@@ -52,10 +55,11 @@ input[type="text"], input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    /* faz com que a largura (width) e a altura (height) de um elemento incluam o preenchimento (padding) e a borda (border) em suas dimensões totais.*/
     box-sizing: border-box;
 }
 
-/*Pega os bo~tões (não sei porque mas o nome "button" não funciona)*/
+/*Pega os botões (não sei porque mas o nome "button" não funciona)*/
 input[type="submit"] {
     width: 100%;
     background-color: #c62828;
@@ -64,9 +68,7 @@ input[type="submit"] {
     border-radius: 4px;
     padding: 10px;
     font-size: 15px;
-    cursor: pointer;
     margin-top: 8px;
-    transition: background-color 0.2s ease;
 }
 
     /*:hover, ao passar o mouse emcima do elemento o css muda*/

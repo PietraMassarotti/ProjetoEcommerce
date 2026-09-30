@@ -41,6 +41,8 @@ public partial class entradaUser_cadastroAdmin : System.Web.UI.Page
             contaErro++;
             msgErro += "Campo 'Senha' deve ser preenchido!<br>";
         }
+
+        //Validação básica de dados, se o tamanho do input for maior que o aceito pelo banco impede o cadastro
         if (txtNomeAdmin.Text.Length > 150)
         {
             contaErro++;

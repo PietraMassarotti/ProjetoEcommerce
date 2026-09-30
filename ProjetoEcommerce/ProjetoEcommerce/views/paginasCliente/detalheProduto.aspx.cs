@@ -36,8 +36,10 @@ public partial class views_paginasCliente_detalheProduto : System.Web.UI.Page
 
             //Evita SQL injection, o nome é Binding SQL;
             cmd.Parameters.AddWithValue("@cod", codProduto);
+            //resultado do select dentro de reader
+            //objeto responsável por ler, linha por linha, o resultado de uma consulta SQL feita ao banco de dados.
             SqlDataReader reader = cmd.ExecuteReader();
-            //Usa if porque o retorno é sempre um único administrador nao vários
+            //Usa if porque o retorno é sempre um único produto nao vários
             if (reader.Read())
             {
                 // cada linha retornado é um items do if
@@ -73,6 +75,7 @@ public partial class views_paginasCliente_detalheProduto : System.Web.UI.Page
 
         int quantidade;
 
+        //Verifique se é um numero ou se é menor que zero
         if (!int.TryParse(txtQuantidade.Text, out quantidade) || quantidade <= 0)
         {
             contaErro++;

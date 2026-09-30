@@ -45,9 +45,10 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
         if (txtCpfCliente.Text.Trim() == "")
         {
             contaErro++;
-            msgErro += "Campo 'CPF' deve ser preenchido!<br>"; // Corrigido a mensagem do CPF
+            msgErro += "Campo 'CPF' deve ser preenchido!<br>";
         }
 
+        //Validação básica de dados, se o tamanho do input for maior que o aceito pelo banco impede o cadastro
         if (txtNomeCliente.Text.Length > 150)
         {
             contaErro++;
@@ -69,7 +70,7 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
         if (txtCpfCliente.Text.Length > 16)
         {
             contaErro++;
-            msgErro += "Campo 'CPF'deve ter no máximo 16 caracteres!<br>"; // Corrigido a mensagem do CPF
+            msgErro += "Campo 'CPF'deve ter no máximo 16 caracteres!<br>";
         }
 
         if (contaErro > 0)
@@ -84,12 +85,13 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
             {
                 conn.Open();
 
-                // 1. Verifica se o e-mail já existe no banco de dados antes de inserir
+                //Verifica se o e-mail já existe no banco de dados antes de inserir
                 SqlCommand cmdVerifica = new SqlCommand("SELECT COUNT(*) FROM tbl_clientes WHERE email = @email", conn);
                 cmdVerifica.Parameters.AddWithValue("@email", txtEmailCliente.Text.Trim());
 
                 int emailExiste = Convert.ToInt32(cmdVerifica.ExecuteScalar());
 
+                //Se o email já existe no banco, impede cadastro
                 if (emailExiste > 0)
                 {
                     lblMsg.Text = "Este e-mail já está cadastrado!";
@@ -98,7 +100,7 @@ public partial class entradaUser_cadastroCliente : System.Web.UI.Page
                     return;
                 }
 
-                // 2. Tenta inserir o novo cliente
+                //Tenta inserir o novo cliente
                 try
                 {
                     SqlCommand cmd = new SqlCommand();
