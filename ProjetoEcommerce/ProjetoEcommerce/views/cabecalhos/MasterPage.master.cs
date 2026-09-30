@@ -16,12 +16,11 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
 
             if (tipo == "C")
             {
-                btnCarrinho.Visible = true;
+                btnPedidos.Visible = true;
                 btnCatalogo.Visible = true;
             }
             if (tipo == "A")
             {
-                btnVendas.Visible = true;
                 btnClientes.Visible = true;
                 btnMeusProdutos.Visible = true;
             }
@@ -44,11 +43,6 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
         Response.Redirect("~/views/cabecalhos/sobre.aspx");
     }
 
-    protected void btnVendas_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/views/paginasAdmin/vendas.aspx");
-    }
-
     protected void btnClientes_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/views/paginasAdmin/verClientes.aspx");
@@ -57,11 +51,6 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
     protected void btnMeusProdutos_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/views/paginasAdmin/verMeusProdutos.aspx");
-    }
-
-    protected void btnCarrinho_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/views/paginasCliente/carrinho.aspx");
     }
 
     protected void btnCatalogo_Click(object sender, EventArgs e)
@@ -77,5 +66,10 @@ public partial class cabecalhos_MasterPage : System.Web.UI.MasterPage
     protected void btnContato_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/views/cabecalhos/contato.aspx");
+    }
+
+    protected void btnPedidos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/views/paginasCliente/pedidos.aspx");
     }
 }
